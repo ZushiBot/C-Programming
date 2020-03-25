@@ -31,11 +31,11 @@ int count=0;
 
     if (count!=0)
     {
-        printf("Found");
+        printf("\nFound");
     }
     else
     {
-        printf("not Found");
+        printf("\nnot Found");
     }
 
 }
