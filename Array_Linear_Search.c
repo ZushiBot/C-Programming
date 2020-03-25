@@ -22,7 +22,7 @@ int count=0;
     {
         if (v==a[i])
             {
-                printf("location is at a[%d]\n",i);
+                printf("Value Located at Array[%d]\n",i);
                 count++;
                 break;
 
@@ -31,7 +31,7 @@ int count=0;
 
     if (count!=0)
     {
-        printf("\nFound");
+        printf("\nValue Found");
     }
     else
     {
