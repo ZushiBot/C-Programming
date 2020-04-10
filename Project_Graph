@@ -1,0 +1,96 @@
+#include <iostream>
+#include <string>
+int main ()
+{
+    int w,m;
+    std::cout << "Box Size : " ;
+    std::cin >> m ;
+    w=m+1;
+    std::string graph[w][w];
+    for (size_t i=0;i<(w/2);i++)//first Half
+        {
+        for (size_t j=0;j<(w/2);j++)
+            {
+                graph[i][j]= " " ;
+            }
+        }
+    for (size_t i=0;i<(w/2);i++)
+    {
+        for (size_t j=(w/2);j<(w/2)+1;j++)
+            {
+                graph[i][j]= "-" ;
+            }
+        }
+    
+    for (size_t i=0;i<(w/2);i++)
+        {
+        for (size_t j=(w/2)+1;j<w;j++)
+            {
+                graph[i][j]= " " ;
+            }
+        }
+    for (size_t i=(w/2);i<(w/2)+1;i++)//middle 
+    {
+        for (size_t j=0;j<w;j++)
+        {
+            graph[i][j]="-";
+        }
+    }
+    for (size_t i=(w/2)+1;i<w;i++)//last half
+        {
+        for (size_t j=0;j<(w/2);j++)
+            {
+                graph[i][j]= " " ;
+            }
+        }
+    for (size_t i=(w/2)+1;i<w;i++)
+        {
+        for (size_t j=(w/2);j<(w/2+1);j++)
+            {
+                graph[i][j]= "-" ;
+            }
+        }
+    for (size_t i=(w/2)+1;i<w;i++)
+        {
+        for (size_t j=(w/2)+1;j<w;j++)
+            {
+                graph[i][j]= " " ;
+            }
+        }
+    int n;//time of check
+    std::cout << "How Many Points You Want To Check ? :" ;
+    std::cin >> n ;
+    for (size_t i=0;i<n;i++)
+        {// check ;
+        int xY,yX;
+        std::cout << "Input X" << (i+1) << " : ";
+        std::cin >> yX ;
+        std::cout << "Input Y" << (i+1) << " : " ;
+        std::cin >> xY ;//combination
+            if (xY>=0 && yX>=0)// Y+ X+
+                {
+                    graph[(w/2)-xY][(w/2)+yX]= "x";
+                }
+            else if (xY>=0 && yX<=0)// Y+ X-
+                {
+                    graph[(w/2)-xY][(w/2)-abs(yX)]= "x";
+                }
+            else if (xY<=0 && yX<=0)// Y- X-
+                {
+                    graph[(w/2)+abs(xY)][(w/2)-abs(yX)]= "x";
+                }
+            else if (xY<=0 && yX>=0)// Y- X+
+                {
+                    graph[(w/2)+abs(xY)][(w/2)+abs(yX)]= "x";
+                }
+        }//Output 
+    for (size_t i=0;i<w;i++)
+        {
+        for (size_t j=0;j<w;j++)
+            {
+                std::cout << graph[i][j];
+                std::cout << " " ; 
+            }
+        std::cout << std::endl ;
+        }
+}
